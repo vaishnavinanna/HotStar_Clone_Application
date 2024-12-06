@@ -1,0 +1,13 @@
+/*SearchConatiner*/
+.container {
+    width: 100%;
+    padding-left: 70px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+    position: absolute;
+    padding-left: 0; 
+    }
+  }
+  

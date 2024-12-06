@@ -1,0 +1,143 @@
+/* .wrapper{
+    background-color: rgb(14,22,38) !important;
+}
+.title{
+    color: white !important;
+    background-color: rgb(14,22,38) !important;
+    margin-top: 10px;
+}
+.para{
+     color: rgb(167, 179, 206) !important;
+     background-color: rgb(14,22,38) !important;
+}
+.button{
+    width: 14%;
+    height: 60px;
+    background-color:rgb(18,69,171) !important;
+    color: white !important;
+    font-weight: bold !important;
+    border: none !important;
+}
+.image{
+    margin-top: 100px !important;
+}
+.logo{
+    background-color: rgb(14,22,38) !important;
+}
+.modal{
+    background-color: rgb(22,24,31)!important;
+    width: 100% !important;
+} */
+
+
+/*LoginConatiner Page Css*/
+/* LoginContainer.module.css */
+.container {
+    width: 100%;
+    padding-left: 65px; /* Default padding for larger screens */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 0; /* Remove padding on smaller screens */
+    }
+  }
+  
+
+  /*LoginPage*/
+  /* LoginPage.module.css */
+
+/* LoginPage.module.css */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items at the top */
+    padding-top: 2rem; /* Add top margin */
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 150px;
+    background-color: rgb(14,22,38) !important;
+  }
+  
+  .image {
+    margin-bottom: 1.5rem; /* Adjusted margin for spacing */
+  }
+  
+  .logo {
+    width: 350px; 
+    height: auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .para {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    font-size: 1.25rem;
+    width: 250px;
+    height: 60px;
+    padding: 0.5rem 2rem;
+    background: linear-gradient(to right, rgb(16,91,221), rgb(20,61,155)); /* Light to dark blue gradient */
+    border: none  !important; 
+    color: white;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(30, 117, 211, 0.5);
+    /* transition: background 0.3s ease, box-shadow 0.3s ease; */
+  } 
+  
+  @media (max-width: 768px) {
+    .wrapper {
+      padding-top: 3rem;
+    }
+  
+    .logo {
+      width: 200px; 
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .para {
+      font-size: 1rem;
+    }
+  
+    .button {
+      font-size: 1rem;
+      padding: 0.4rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .wrapper {
+      padding-top: 2rem;
+    }
+  
+    .logo {
+      width: 180px; 
+    }
+  
+    .title {
+      font-size: 1.2rem;
+    }
+  
+    .para {
+      font-size: 0.9rem;
+    }
+  
+    .button {
+      font-size: 0.9rem;
+      padding: 0.3rem 1.2rem;
+    }
+  }
+  
