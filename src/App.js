@@ -6,9 +6,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import LoginContainer from './components/LoggedUser/LoginContainer';
 import Subscription from './components/Subscription/Subscription';
 
-// import store from './Store';
-// import { Provider } from 'react-redux';
-
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -17,7 +14,6 @@ const darkTheme = createTheme({
 
 function App() {
   return (
-    // <div className='body'>
       <ThemeProvider theme={darkTheme}>
         <BrowserRouter>
           <Routes>
@@ -25,12 +21,10 @@ function App() {
             <Route path="/search" element={<SearchContainer />} />
             <Route path='/home' element={<Container />} />
             <Route path='/login' element={<LoginContainer />} />
-            <Route path='subscription' element={<Subscription/>} />
+            <Route path='/subscription' element={<Subscription/>} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
-
-    // </div>
   );
 }
 

@@ -9,7 +9,7 @@ function LoginContainer() {
 
   useEffect(() => {
     let key = localStorage.getItem('key');
-    console.log("The key is ", key);
+    // console.log("The key is ", key);
     if (key) {
       setUser(true);
     }

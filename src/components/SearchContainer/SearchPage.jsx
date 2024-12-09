@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
-import styles from '../CardContainer/CardContainer.module.css'; 
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Movies from '../CardContainer/Movies';
+import style from './SearchPage.module.css';
 
 function SearchPage(props) {
 
@@ -90,9 +90,9 @@ function SearchPage(props) {
  
 
       <h3 className="text-white m-5">Trending in India</h3>
-      <div className="d-flex flex-row flex-wrap mx-5" style={{ overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', gap: 20,  padding: 20}}>
+      <div className={`d-flex flex-row flex-wrap mx-5 ${style.box}`} >
         {filteredData.map((item) => (
-          <div key={item.id} className={`${styles.imageDiv}`}>
+          <div key={item.id}>
             <Movies movie={item}/>
           </div>
         ))}

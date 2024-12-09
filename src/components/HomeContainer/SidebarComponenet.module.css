@@ -2,3 +2,19 @@
     display: flex;
     justify-content: center;
 }
+.outerDiv{
+    padding: '10px';
+     text-align: 'center';
+}
+.toolbar{
+    position:'absolute';
+    z-Index:100;
+}
+.navItem{
+    display: 'flex';
+     align-items: 'center';
+      margin-bottom: '10px';
+}
+.icon{
+     margin-right: '15px';
+}

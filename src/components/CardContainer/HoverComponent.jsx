@@ -15,19 +15,39 @@ import AddIcon from '@mui/icons-material/Add';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useDispatch } from 'react-redux';
 import { addMovie } from '../Redux/AddMovieSlice';
+import { useEffect } from 'react';
+
 
 function HoverComponent({ movie }) {
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
 
-    const shortOverview = movie.overview.substring(0, 110);
+    const shortOverview = movie.overview
+        ? movie.overview.substring(0, 110)
+        : "Overview not available";
+
     const releaseDate = movie.release_date
         ? movie.release_date.substring(0, 4)
-        : movie.first_air_date.substring(0, 4);
+        : movie.first_air_date
+            ? movie.first_air_date.substring(0, 4)
+            : "Unknown";
+    const [user, setUser] = useState(false);  
+
+    useEffect(() => {
+        const key = localStorage.getItem('key');  
+        if (key) {
+            setUser(true);
+        }
+    }, []);
 
     const handleAddMovie = () => {
-        dispatch(addMovie(movie));
+        if (user) { 
+            dispatch(addMovie(movie));  
+        } else {
+            alert('Please log in to add movies to your collection.');  
+        }
     };
+
 
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
@@ -88,7 +108,7 @@ function HoverComponent({ movie }) {
                 fullWidth
                 sx={{
                     '& .MuiDialog-paper': {
-                        maxWidth: '50%', 
+                        maxWidth: '50%',
                         backgroundColor: '#16181f',
                         color: '#fff',
                     },
@@ -116,11 +136,11 @@ function HoverComponent({ movie }) {
                             width: '100%',
                             maxHeight: 400,
                             objectFit: 'cover',
-                       
+
                         }}
                     />
                     <Typography>
-                    {movie.title || movie.name}
+                        {movie.title || movie.name}
                     </Typography>
                     <Typography variant="body1" paragraph>
                         {movie.overview}

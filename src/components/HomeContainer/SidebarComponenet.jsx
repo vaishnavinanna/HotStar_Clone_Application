@@ -13,7 +13,7 @@ import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import CategoryIcon from '@mui/icons-material/Category';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Container, Grid, Button, Hidden } from '@mui/material';
+import { Toolbar, IconButton, Drawer, List, ListItem, ListItemText, ListItemIcon, Container, Grid, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../../assets/logo-d-plus.webp';
 import styles from './SidebarComponenet.module.css';
@@ -67,7 +67,7 @@ function SidebarComponenet() {
         }}
       >
 
-        <div style={{ padding: '10px', textAlign: 'center' }}>
+        <div className={styles.outerDiv}>
           <img src={logo} alt="logo" height={40} />
           <br />
           <Button
@@ -96,9 +96,8 @@ function SidebarComponenet() {
         </List>
       </Drawer>
 
-      <Toolbar style={{position:'absolute',zIndex:100}}>
+      <Toolbar className={styles.toolbar} sx={{position:'absolute'}}>
           <IconButton
-          style={{backgroundColor:'rgb(14,22,38)'}}
             edge="start"
             aria-label="menu"
             onClick={() => toggleDrawer(true)}
@@ -115,14 +114,13 @@ function SidebarComponenet() {
         <CSidebarNav className={styles.container}>
         {drawerItems.map((item, index) => (
             <CNavItem
+              className={`text-white ${styles.navItem}`}
               key={index}
               href="#"
-              className="text-white"
               onClick={item.action}
-              style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}
             >
-              <span style={{ marginRight: '15px' }}>{item.icon}</span>
-              <span>{item.text}</span>
+              <span className={styles.icon}>{item.icon}</span>
+              <span className={` mx-3 ${styles.icon}`}>{item.text}</span>
             </CNavItem>
           ))}
         </CSidebarNav>

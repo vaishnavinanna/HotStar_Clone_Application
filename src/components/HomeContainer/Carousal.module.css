@@ -36,8 +36,6 @@
 
 
 
-
-
   /*conatiner css*/
   .Container {
     display: flex;
@@ -52,7 +50,7 @@
   @media (max-width: 768px) {
     .Content {
     position: absolute;
-    padding-left: 0; /* Remove padding on small screens */
+    padding-left: 0; 
     }
   }
   

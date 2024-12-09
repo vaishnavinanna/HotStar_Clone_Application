@@ -2,91 +2,79 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button } from 'reactstrap';
 import getData from '../CardContainer/Axios';
 import Movies from '../CardContainer/Movies';
-import style from '../../App.css';
-// import { Suspense } from 'react';
+import styles from './CardContainer.module.css';
 
 function CardContainer({ category }) {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const scrollRef = useRef(null);
 
-    useEffect(() => {
-        async function fetchData() {
-            let url = '';
-            if (category === 'Latest Releases') {
-                url = 'https://api.themoviedb.org/3/trending/movie/day';
-            } else if (category === 'Top Rated') {
-                url = 'https://api.themoviedb.org/3/tv/top_rated';
-            } else if (category === 'TV Shows') {
-                url = 'https://api.themoviedb.org/3/trending/tv/day';
-            }
+    const fetchData = async () => {
+        if (loading) return;
 
-            try {
-                const res = await getData(url);
-                setData(res?.results);
-                // console.log("the data is ",res)
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
+        setLoading(true); 
+        let url = '';
+
+        if (category === 'Latest Releases') {
+            url = `https://api.themoviedb.org/3/trending/movie/day`;
+        } else if (category === 'Top Rated') {
+            url = `https://api.themoviedb.org/3/tv/top_rated`;
+        } else if (category === 'TV Shows') {
+            url = `https://api.themoviedb.org/3/trending/tv/day`;
         }
 
-        setTimeout(()=>{
-            fetchData()
-        },1000)
-    }, [category]);
+        try {
+            const res = await getData(url);
+            setData((prevData) => [...prevData, ...res?.results]);  
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        } finally {
+            setLoading(false);  
+        }
+    };
 
-    
+    useEffect(() => {
+        fetchData();  
+    }, [category]);  
+
 
     const getPrevScroll = () => {
-        scrollRef.current.scrollBy({ left: -1900 });
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: -1900, behavior: 'smooth' }); 
+        }
     };
 
     const getNextScroll = () => {
         if (scrollRef.current) {
-            scrollRef.current.scrollBy({ left: 1900 });
+            scrollRef.current.scrollBy({ left: 1900, behavior: 'smooth' });  
         }
     };
 
     return (
-        <div className={style.body} style={{ position: 'relative'}}>
+        <div className={styles.body}>
             <h3 className="text-white m-3">{category}</h3>
-            <div className='d-flex flex-row mx-3' style={{ overflow: 'hidden', whiteSpace: 'nowrap', display: 'flex', gap: 20, padding: 20 }} ref={scrollRef}>
-                <Button
-                    onClick={getPrevScroll}
-                    style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 10,
-                        backgroundColor: 'transparent',
-                        border: 'none'
-                    }}
-                >
+            <div
+                className={`${styles.scrollContainer} d-flex flex-row mx-3`}
+                ref={scrollRef}
+            >
+                <Button onClick={getPrevScroll} className={styles.scrollButton}>
                     <h1>&#9001;</h1>
                 </Button>
-                <Button
-                    onClick={getNextScroll}
-                    style={{
-                        position: 'absolute',
-                        right: 0,
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        zIndex: 10,
-                        backgroundColor: 'transparent',
-                        border: 'none'
-                    }}
-                >
+
+                <Button onClick={getNextScroll} className={styles.scrollButton}>
                     <h1>&#9002;</h1>
                 </Button>
 
                 {data.map((item, index) => (
-                    <Movies
-                        movie={item}
-                    />
+                    <Movies movie={item} key={index} />
                 ))}
+
+                {loading && <div>Loading more...</div>}
             </div>
         </div>
     );
 }
 
 export default CardContainer;
+
+

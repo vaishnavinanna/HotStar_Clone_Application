@@ -10,4 +10,12 @@
     padding-left: 0; 
     }
   }
+
+  .box{
+    overflow: 'hidden';
+     white-space: 'nowrap';
+     display: 'flex';
+      gap: 20px;
+    padding: 20px;
+  }
   

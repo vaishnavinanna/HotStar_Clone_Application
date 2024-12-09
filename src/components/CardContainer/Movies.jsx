@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Movies.css';
 import HoverComponent from './HoverComponent';
 
+// Lazy load HoverComponent
+const HoverComponentLazy = React.lazy(() => import('./HoverComponent'));
+
 function Movies({ movie }) {
     const [isVisible, setIsVisible] = useState(false);
     const imgRef = useRef(null);
@@ -11,7 +14,7 @@ function Movies({ movie }) {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        console.log(`Image with ID ${movie.id} is loading`);
+                        // console.log(`Image with ID ${movie.id} is loading`);
                         setIsVisible(true);  
                         observer.disconnect(); 
                     }
@@ -39,7 +42,9 @@ function Movies({ movie }) {
                 alt={movie.title}
             />
             <div className="overlay">
-                <HoverComponent movie={movie} />
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <HoverComponentLazy movie={movie} />
+                </React.Suspense>
             </div>
         </div>
     );
