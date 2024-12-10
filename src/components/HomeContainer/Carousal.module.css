@@ -1,39 +1,19 @@
-.container {
+   .container {
     width: 100%;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     overflow: hidden;
   }
   
-  .carouselItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; 
+  .d-block {
+    display: block;
   }
   
-  .image {
+  .w-100 {
     width: 100%;
     height: auto;
-    max-height: 90vh; 
     object-fit: cover;
   }
-  
-  @media (max-width: 768px) {
-    .image {
-      max-height: 70vh; 
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .image {
-      max-height: 50vh;
-    }
-  }
-  
-
-
-
-
 
 
   /*conatiner css*/

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Movies from '../CardContainer/Movies';
 import style from './SearchPage.module.css';
@@ -77,25 +77,24 @@ function SearchPage(props) {
                         input: {
                             startAdornment:
                                 <InputAdornment position="start" sx={{ color: 'white' }}>
-                                    <IconButton
-                                        aria-label="description for action"
-                                    >
                                         <SearchIcon sx={{ color: '#8F98B2' }} />
-                                    </IconButton>
                                 </InputAdornment>
                         },
                     }}
                 />
                </Box>
- 
 
       <h3 className="text-white m-5">Trending in India</h3>
       <div className={`d-flex flex-row flex-wrap mx-5 ${style.box}`} >
-        {filteredData.map((item) => (
-          <div key={item.id}>
-            <Movies movie={item}/>
-          </div>
-        ))}
+      {filteredData.length === 0 ? (
+          <p className='text-white'>No data found</p>
+        ) : (
+          filteredData.map((item) => (
+            <div key={item.id}>
+              <Movies movie={item}/>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

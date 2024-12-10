@@ -8,7 +8,7 @@
     display: flex;
     gap: 20px;
     padding: 20px;
-    scroll-behavior: smooth; /* Enables smooth scrolling */
+    scroll-behavior: smooth; 
 }
 
 .scrollButton {
@@ -18,9 +18,9 @@
     z-index: 10;
     background: none !important;
     border: none !important;
-    color: white; /* Ensures arrow is visible */
-    font-size: 2rem; /* Adjust font size for better visibility */
-    cursor: pointer; /* Change cursor to pointer for a better UX */
+    color: white; 
+    font-size: 2rem; 
+    cursor: pointer; 
 }
 
 .scrollButton:first-of-type {

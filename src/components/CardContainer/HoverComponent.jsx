@@ -58,7 +58,7 @@ function HoverComponent({ movie }) {
                 className='overlay-card-content'
                 sx={{ maxWidth: 'fit-content', backgroundColor: '#16181f' }}
             >
-                <CardActionArea>
+                <>
                     <CardMedia
                         component="img"
                         height={150}
@@ -76,7 +76,7 @@ function HoverComponent({ movie }) {
                             <PlayArrowIcon /> Watch Now
                         </Button>
                         <Button
-                            small
+                            
                             variant="outlined"
                             sx={{ color: 'white', backgroundColor: 'rgb(14,22,38)' }}
                             onClick={handleAddMovie}
@@ -98,7 +98,7 @@ function HoverComponent({ movie }) {
                             {shortOverview}...
                         </Typography>
                     </CardContent>
-                </CardActionArea>
+                </>
             </Card>
 
             <Dialog

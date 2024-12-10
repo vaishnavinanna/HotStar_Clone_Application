@@ -75,10 +75,13 @@ function SidebarComponenet() {
             sx={{
               marginTop: '20px',
               width: '80%',
-              backgroundColor: '#E50914',
-              color: '#fff',
-              borderRadius: '20px',
-              '&:hover': { backgroundColor: '#B81D11' },
+              height: '40px',
+              fontSize: '10px',
+              backgroundColor: 'rgb(163, 124, 76, .3)',
+              border: 'none',
+              color: 'gold',
+              borderRadius: '14px',
+              
             }}
             onClick={() => console.log("Subscribe clicked")}
           >
@@ -111,6 +114,22 @@ function SidebarComponenet() {
         <CSidebarHeader>
           <img src={logo} alt="logo" height={40} />
         </CSidebarHeader>
+        <Button
+            variant="contained"
+            sx={{
+              marginTop: '20px',
+              width: '20%',
+              height: '20px',
+              fontSize: '10px',
+              backgroundColor: 'rgb(163, 124, 76, .3)',
+              color: 'black',
+              border: 'none',
+              color: 'gold',
+              borderRadius: '14px',
+            }}
+          >
+            Subscribe
+          </Button>
         <CSidebarNav className={styles.container}>
         {drawerItems.map((item, index) => (
             <CNavItem

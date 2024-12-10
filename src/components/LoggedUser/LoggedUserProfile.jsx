@@ -118,7 +118,7 @@ function LoggedUserProfile(props) {
                         </Grid>
                     </Grid>
 
-                    <hr />
+                    <hr className='mx-5'/>
 
                     <Grid container spacing={3} sx={{ marginTop: 3 }}>
                         {profileData.map((profile, index) => (
@@ -154,8 +154,6 @@ function LoggedUserProfile(props) {
                             </Grid>
                         ))}
                     </Grid>
-
-
                     <div>
                         {hasMovies && <ContinueWatchingCard continueWatching={continueWatching} />}
                     </div>
