@@ -122,7 +122,6 @@ function SidebarComponenet() {
               height: '20px',
               fontSize: '10px',
               backgroundColor: 'rgb(163, 124, 76, .3)',
-              color: 'black',
               border: 'none',
               color: 'gold',
               borderRadius: '14px',

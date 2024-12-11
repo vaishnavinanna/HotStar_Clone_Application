@@ -85,7 +85,7 @@ function SearchPage(props) {
                </Box>
 
       <h3 className="text-white m-5">Trending in India</h3>
-      <div className={`d-flex flex-row flex-wrap mx-5 ${style.box}`} >
+      <div className={`d-flex flex-row flex-wrap ms-4 ${style.box}`} >
       {filteredData.length === 0 ? (
           <p className='text-white'>No data found</p>
         ) : (

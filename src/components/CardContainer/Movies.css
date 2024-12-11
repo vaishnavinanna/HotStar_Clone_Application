@@ -13,7 +13,6 @@
 }
 
 .images {
-    inset: 0px;
     box-sizing: border-box;
     padding: 0px;
     border: none;
@@ -47,16 +46,8 @@
 .ImgDiv:hover .overlay {
     opacity: 1;
     transform: scale(1.1);
-    cursor: pointer;
 }
-
 .overlay-card-content {
     max-width: 450px;
-    text-align: start;
-    white-space: normal;
-    overflow-wrap: break-word;
-    line-height: 1.5;
+    white-space:normal;
 }
-
-
-

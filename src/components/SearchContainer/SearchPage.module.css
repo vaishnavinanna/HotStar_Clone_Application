@@ -13,9 +13,9 @@
 
   .box{
     overflow: 'hidden';
-     white-space: 'nowrap';
-     display: 'flex';
-      gap: 20px;
+    white-space: 'nowrap';
+    display: 'flex';
+    gap: 20px;
     padding: 20px;
   }
   

@@ -25,7 +25,7 @@ function CardContainer({ category }) {
 
         try {
             const res = await getData(url);
-            setData((prevData) => [...prevData, ...res?.results]);  
+            setData(res.results);
         } catch (error) {
             console.error("Error fetching data:", error);
         } finally {
@@ -52,7 +52,7 @@ function CardContainer({ category }) {
 
     return (
         <div className={styles.body}>
-            <h3 className="text-white m-3">{category}</h3>
+            <h3 className={`text-white m-3 ms-4 ${styles.text}`}>{category}</h3>
             <div
                 className={`${styles.scrollContainer} d-flex flex-row mx-3`}
                 ref={scrollRef}
@@ -69,7 +69,7 @@ function CardContainer({ category }) {
                     <Movies movie={item} key={index} />
                 ))}
 
-                {loading && <div>Loading more...</div>}
+                {loading && <div className='text-white'>Loading more...</div>}
             </div>
         </div>
     );

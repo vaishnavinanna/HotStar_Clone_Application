@@ -12,11 +12,12 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Container from '@mui/material/Container';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import Avatar from '@mui/material/Avatar';
+import addMore from '../../assets/addMore.png';
 
 function LoggedUserProfile(props) {
     const profileData = [
-        { name: 'User', avatar: 'https://www.shutterstock.com/image-vector/angry-boy-flat-avatar-human-260nw-613640318.jpg' },
-        { name: 'New User', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6oB0f4cgLO5e3WWqpNsBt-rEFUVoCD4UnwA&s' },
+        { name: 'Vaishnavi', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnEwQpB_X-G5K_LQ0h5phrweDohu-eAE2FJA&s' },
+        { name: 'New User', avatar: addMore},
     ];
 
     const logout = () => {
@@ -55,7 +56,7 @@ function LoggedUserProfile(props) {
                     bgcolor: 'linear-gradient(351deg, rgba(12,33,44,1) 3%, rgba(38,54,84,1) 45%, rgba(15,16,20,1) 100%)',
                     padding: '50px',
                 }}>
-                    <Grid container spacing={3} sx={{ paddingTop: 2, paddingBottom: 4, marginLeft:3 }}>
+                    <Grid container spacing={3} sx={{ paddingTop: 2, paddingBottom: 4 }}>
                         <Grid item xs={12} sm={6}>
                             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
                                 <span className={` ${styles.subtagline}`}>
@@ -86,7 +87,7 @@ function LoggedUserProfile(props) {
                                     Subscribe
                                 </Button>
                             </Grid>
-                            <Grid  marginLeft={3} item>
+                            <Grid item>
                                 <Button
                                     variant="contained"
                                     sx={{
@@ -118,41 +119,71 @@ function LoggedUserProfile(props) {
                         </Grid>
                     </Grid>
 
-                    <hr className='mx-5'/>
+                    <hr/>
 
-                    <Grid container spacing={3} sx={{ marginTop: 3 }}>
-                        {profileData.map((profile, index) => (
-                            <Grid item xs={6} sm={4} md={1} key={index}>
-                                <Card
+                    <Grid container spacing={3} sx={{ marginTop: 3,}}>
+                        <Grid item xs={6} sm={4} md={1}>
+                            <Card
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    padding: 0,
+                                    boxShadow: 'none',
+                                    background: 'none',
+                                    border: 'none',
+                                }}
+                            >
+                                <Avatar
+                                    src={profileData[0].avatar}
+                                    alt={profileData[0].name}
                                     sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        padding: 0,
-                                        boxShadow: 'none',
-                                        background: 'none',
-                                        border: 'none',
+                                        width: 100,
+                                        height: 100,
+                                        marginBottom: 1,
                                     }}
+                                />
+                                <Typography
+                                    variant="body1"
+                                    textAlign="center"
+                                    sx={{ color: 'white', marginTop: 1 }}
                                 >
-                                    <Avatar
-                                        src={profile.avatar}
-                                        alt={profile.name}
-                                        sx={{
-                                            width: 80,
-                                            height: 80,
-                                            marginBottom: 1,
-                                        }}
-                                    />
-                                    <Typography
-                                        variant="body1"
-                                        textAlign="center"
-                                        sx={{ color: 'white', marginTop: 1 }}
-                                    >
-                                        {profile.name}
-                                    </Typography>
-                                </Card>
-                            </Grid>
-                        ))}
+                                    {profileData[0].name}
+                                </Typography>
+                            </Card>
+                        </Grid>
+
+                        <Grid item xs={6} sm={4} md={1}>
+                            <Card
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    padding: 0,
+                                    boxShadow: 'none',
+                                    background: 'none',
+                                    border: 'none',
+                                }}
+                            >
+                                <Avatar
+                                    src={profileData[1].avatar}
+                                    alt={profileData[1].name}
+                                    sx={{
+                                        width: 100,
+                                        height: 100,
+                                        marginBottom: 1,
+                                        filter: 'brightness(80%) invert(0.4)'
+                                    }}
+                                />
+                                <Typography
+                                    variant="body1"
+                                    textAlign="center"
+                                    sx={{ color: 'white', marginTop: 1 }}
+                                >
+                                    {profileData[1].name}
+                                </Typography>
+                            </Card>
+                        </Grid>
                     </Grid>
                     <div>
                         {hasMovies && <ContinueWatchingCard continueWatching={continueWatching} />}
@@ -164,6 +195,3 @@ function LoggedUserProfile(props) {
 }
 
 export default LoggedUserProfile;
-
-
-

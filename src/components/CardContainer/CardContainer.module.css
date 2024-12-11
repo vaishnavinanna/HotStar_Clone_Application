@@ -30,7 +30,9 @@
 .scrollButton:last-of-type {
     right: 0;
 }
-
+.text{
+    font-family:  "Inter", sans-serif;
+}
 
 
 

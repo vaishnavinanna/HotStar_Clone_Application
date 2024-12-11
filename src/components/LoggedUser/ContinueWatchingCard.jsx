@@ -7,7 +7,7 @@ function ContinueWatchingCard({continueWatching,color}) {
     return (
         <div style={{backgroundColor:color}}>
               <div className={styles.body} style={{backgroundColor:color}}>
-                    <div className={`mx-5 ${styles.bg}`} style={{backgroundColor:color}}>
+                    <div className={` ${styles.bg}`} style={{backgroundColor:color}}>
                      <h4 style={{backgroundColor:color}} className={styles.data} >Continue Watching with Vaishnavi</h4>
                     </div>    
                     <div className={styles.continueWatchingGrid} style={{backgroundColor:color}}>
@@ -19,13 +19,14 @@ function ContinueWatchingCard({continueWatching,color}) {
                                     alt={item.title}
                                     className={styles.watchImage}
                                 />
-                                <CardContent>
+                            <CardContent>
                                     <LinearProgress
                                         variant="determinate"
                                         value={item.progress}
                                         className={styles.progressBar}
                                     />
-                                    <p className='text-white'>{item.title}</p>
+                                    {/* <p className='text-white'><h4>{item.title}</h4></p> */}
+                                    <h4 className={`p-1 text-white mt-3 ${styles.background}`}>{item.title}</h4>
                                 </CardContent>
                             </Card>
                         ))}

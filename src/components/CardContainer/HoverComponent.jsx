@@ -76,7 +76,6 @@ function HoverComponent({ movie }) {
                             <PlayArrowIcon /> Watch Now
                         </Button>
                         <Button
-                            
                             variant="outlined"
                             sx={{ color: 'white', backgroundColor: 'rgb(14,22,38)' }}
                             onClick={handleAddMovie}
@@ -91,7 +90,7 @@ function HoverComponent({ movie }) {
                             component="div"
                             color="#fff"
                         >
-                            {releaseDate} • {movie.original_language} •{' '}
+                            {releaseDate} • {movie.original_language.toUpperCase()} •{' '}
                             {movie.adult ? '18+' : '16+'}
                         </Typography>
                         <Typography variant="body2" sx={{ color: '#8690a8' }}>
@@ -108,20 +107,22 @@ function HoverComponent({ movie }) {
                 fullWidth
                 sx={{
                     '& .MuiDialog-paper': {
-                        maxWidth: '50%',
+                        maxWidth: '40%',
                         backgroundColor: '#16181f',
                         color: '#fff',
+                        padding:0,
+                        margin:0,
                     },
                 }}
             >
-                <DialogTitle>
+                <DialogTitle sx={{ m: 0, p: 2 }}>
                     <IconButton
                         aria-label="close"
                         onClick={handleCloseModal}
                         sx={{
                             position: 'absolute',
-                            right: 8,
-                            top: 8,
+                            right: 1,
+                            top: 0,
                         }}
                     >
                         <CloseIcon />
@@ -136,20 +137,19 @@ function HoverComponent({ movie }) {
                             width: '100%',
                             maxHeight: 400,
                             objectFit: 'cover',
-
                         }}
                     />
-                    <Typography>
+                    <Typography sx={{fontSize: '2rem', fontWeight: 'bold', marginTop:'1rem'}}>
                         {movie.title || movie.name}
                     </Typography>
-                    <Typography variant="body1" paragraph>
+                    <Typography variant="h6" paragraph>
                         {movie.overview}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'white' }}>
+                    <Typography variant="h6" sx={{ color: 'white' }}>
                         Release Date: {movie.release_date || movie.first_air_date}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'white' }}>
-                        Language: {movie.original_language}
+                    <Typography variant="h6" sx={{ color: 'white' }}>
+                        Language: {movie.original_language.toUpperCase()}
                     </Typography>
                 </DialogContent>
             </Dialog>
