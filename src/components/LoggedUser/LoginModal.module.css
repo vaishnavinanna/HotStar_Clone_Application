@@ -32,6 +32,7 @@
 
 .modalSubTitle {
   margin-top: 10px;
+  margin-bottom: 30px !important;
 }
 
 .gridContainer {
@@ -83,6 +84,7 @@
 
 .loginButton {
   width: 100%;
+  color: white !important;
 }
 
 @media (max-width: 768px) {

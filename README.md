@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Hotstar Clone Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This project is a clone of the Hotstar streaming service, built using modern web technologies. 
+It aims to provide a similar user experience, allowing users to browse and watch their favorite shows and movies.
 
-## Available Scripts
+## Features
+- User authentication
+- Browse and search for content
+- Watch trailers and full episodes
+- Responsive design for mobile and desktop
 
-In the project directory, you can run:
+## Installation
+To get started with this project, clone the repository and install the necessary dependencies.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+git clone https://github.com/vaishnavinanna/HotStar_Clone_Application.git
+cd hotstar-clone-application
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
+To run the application locally, use the following command:
 
-### `npm test`
+npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+This will start the development server, and you can view the application in your browser at `http://localhost:3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Hotstar Clone Application - Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This README provides an overview of the components used in the Hotstar Clone Application. Each component is designed to 
+handle specific functionalities within the application.
 
-### `npm run eject`
+##  HomeContainer
+The `HomeContainer` component serves as the main layout for the home page. It conditionally renders user-specific content 
+or general content based on the user's login status.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Features:
+- Displays a sidebar for navigation.
+- Renders the `LoggedUser` component if the user is logged in; otherwise, it shows the `Carousal` and `CardContainer`
+ components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##  SidebarComponenet
+The `SidebarComponenet` provides navigation options for the application, allowing users to access different sections 
+easily.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Key Features:
+- Contains links to various sections (e.g., My Space, Search, Home).
+- Responsive design with a drawer for mobile view.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## LoggedUser
+The `LoggedUser` component displays user-specific content when a user is logged in. It includes a "Continue Watching" 
+section.
 
-## Learn More
+### Key Features:
+- Fetches and displays the user's saved movies.
+- Renders the `Carousal` and `ContinueWatchingCard` components.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##  ContinueWatchingCard
+The `ContinueWatchingCard` component shows the movies that the user is currently watching, along with progress indicators.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Key Features:
+- Displays movie images and progress bars.
+- Provides a visually appealing layout for user engagement.
 
-### Code Splitting
+##  CardContainer
+The `CardContainer` component displays a scrollable list of movies or TV shows based on the selected category. It fetches 
+data from an API and renders individual movie items using the `Movies` component.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Key Features:
+- Fetches data based on the selected category (e.g., Latest Releases, Top Rated).
+- Implements smooth scrolling functionality.
+- Displays loading indicators while fetching data.
 
-### Analyzing the Bundle Size
+##  Movies
+The `Movies` component is responsible for rendering individual movie items. It includes lazy loading of images to improve
+ performance.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Key Features:
+- Uses Intersection Observer to load images only when they are in the viewport.
+- Displays movie titles and images with a hover effect.
 
-### Making a Progressive Web App
+## SearchContainer
+The `SearchContainer` component wraps the search functionality, including the sidebar and search results.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Key Features:
+- Integrates the `SidebarComponenet` and `SearchPage` components.
+- Provides a cohesive layout for searching content.
 
-### Advanced Configuration
+## SearchPage
+The `SearchPage` component handles the search input and displays filtered movie results based on user input.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Key Features:
+- Implements a search bar with dynamic filtering.
+- Displays search results using the `Movies` component.
 
-### Deployment
+## Subscription
+The `Subscription` component displays subscription plans and handles payment processing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Key Features:
+- Shows different subscription options (Super, Premium).
+- Integrates with the payment gateway for processing payments.
 
-### `npm run build` fails to minify
+## PaymentGateway
+The `PaymentGateway` component manages the payment process for subscriptions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Key Features:
+- Handles payment processing using Razorpay.
+- Provides a seamless payment experience for users.
+
+## Conclusion
+This README provides a high-level overview of the components in the Hotstar Clone Application. 
+Each component is designed to work together to create a cohesive user experience, allowing users to browse,
+search, and manage their subscriptions effectively.

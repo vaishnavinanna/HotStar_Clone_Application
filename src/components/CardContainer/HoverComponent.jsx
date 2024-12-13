@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import CardActionArea from '@mui/material/CardActionArea';
+// import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -45,9 +45,9 @@ function HoverComponent({ movie }) {
             dispatch(addMovie(movie));  
         } else {
             alert('Please log in to add movies to your collection.');  
+            return;
         }
     };
-
 
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
